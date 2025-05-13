@@ -28,6 +28,7 @@ const PostPage = () => {
           commentElements[commentPosition].classList.remove('highlight-comment');
         }, 2000);
       }
+      
     }
   }, [location, post]);
 
