@@ -179,5 +179,9 @@ public class GroupController {
         }
     }
 
-
+    @GetMapping("/{groupId}/members")
+    public ResponseEntity<List<User>> getGroupMembers(@PathVariable String groupId) {
+        List<User> members = groupService.getGroupMembers(groupId);
+        return ResponseEntity.ok(members);
+    }
 }
