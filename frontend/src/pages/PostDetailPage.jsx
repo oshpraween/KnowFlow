@@ -47,7 +47,7 @@ const PostDetailPage = () => {
       } finally {
         setLoading(false);
       }
-      
+
     };
     
     fetchPostDetails();
@@ -106,5 +106,7 @@ const PostDetailPage = () => {
     </div>
   );
 };
+
+
 
 export default PostDetailPage;
