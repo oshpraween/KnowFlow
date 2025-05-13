@@ -4,6 +4,7 @@ import CommentList from '../components/CommentList';
 import { usePost } from '../hooks/usePost';
 import { useAuth } from '../hooks/useAuth';
 
+
 const PostPage = () => {
   const { postId } = useParams();
   const { post } = usePost(postId);
@@ -28,7 +29,7 @@ const PostPage = () => {
           commentElements[commentPosition].classList.remove('highlight-comment');
         }, 2000);
       }
-      
+
     }
   }, [location, post]);
 
