@@ -514,6 +514,7 @@ const PostCard = ({ post: initialPost, userId, detailed = false, onDelete, onUpd
       )}
     </motion.div>
   );
+  
 };
 
 export default PostCard;
