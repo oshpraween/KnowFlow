@@ -29,6 +29,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
         ConnectionString connectionString = new ConnectionString(mongoUri);
         return connectionString.getDatabase() != null ? 
                connectionString.getDatabase() : "skillsharedb";
+               
     }
     
     @Override
@@ -61,4 +62,6 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
         
         return converter;
     }
+
+
 }

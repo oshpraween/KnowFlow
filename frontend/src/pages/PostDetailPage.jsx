@@ -47,6 +47,7 @@ const PostDetailPage = () => {
       } finally {
         setLoading(false);
       }
+      
     };
     
     fetchPostDetails();

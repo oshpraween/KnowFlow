@@ -31,4 +31,5 @@ public class FileUploadConfig implements WebMvcConfigurer {
             logger.error("Failed to configure upload directory", e);
         }
     }
+    
 }
