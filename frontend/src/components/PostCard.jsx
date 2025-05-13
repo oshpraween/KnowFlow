@@ -102,6 +102,7 @@ const PostCard = ({ post: initialPost, userId, detailed = false, onDelete, onUpd
 
     checkLikeStatus();
 
+    
     return () => {
       isSubscribed = false;
     };
@@ -204,6 +205,7 @@ const PostCard = ({ post: initialPost, userId, detailed = false, onDelete, onUpd
         await axios.post(
           `http://localhost:8081/api/posts/${post.id}/views`, 
           { viewerId: userId },
+
           { 
             headers: { 'Authorization': `Bearer ${token}` },
             timeout: 5000 // Add timeout
@@ -514,7 +516,7 @@ const PostCard = ({ post: initialPost, userId, detailed = false, onDelete, onUpd
       )}
     </motion.div>
   );
-  
+
 };
 
 export default PostCard;
