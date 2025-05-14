@@ -162,7 +162,22 @@ public class GroupController {
         }
     }
     
-
+    @DeleteMapping("/{groupId}/members/{memberId}")
+    public ResponseEntity<?> removeGroupMember(
+            @PathVariable String groupId,
+            @PathVariable String memberId,
+            @RequestParam String userId) {
+        try {
+            groupService.removeGroupMember(groupId, memberId, userId);
+            return ResponseEntity.ok(Map.of("message", "Member removed from group"));
+        } catch (IllegalStateException e) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                   .body(Map.of("message", e.getMessage()));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                   .body(Map.of("message", "Failed to remove member: " + e.getMessage()));
+        }
+    }
 
     @GetMapping("/{groupId}/members")
     public ResponseEntity<List<User>> getGroupMembers(@PathVariable String groupId) {
