@@ -45,7 +45,10 @@ public class GroupController {
         return ResponseEntity.ok(groupService.getGroupsByOwnerId(userId));
     }
 
-
+    @GetMapping("/user/{userId}/joined")
+    public ResponseEntity<List<Group>> getUserJoinedGroups(@PathVariable String userId) {
+        return ResponseEntity.ok(groupService.getGroupsByMemberId(userId));
+    }
     
     @GetMapping("/user/{userId}/all")
     public ResponseEntity<List<Group>> getAllUserGroups(@PathVariable String userId) {
