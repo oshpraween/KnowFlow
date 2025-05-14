@@ -68,18 +68,7 @@ public class GroupController {
         }
     }
 
-    @DeleteMapping("/{groupId}/leave")
-    public ResponseEntity<?> leaveGroup(@PathVariable String groupId, @RequestParam String userId) {
-        try {
-            groupService.leaveGroup(groupId, userId);
-            return ResponseEntity.ok(Map.of("message", "Successfully left the group"));
-        } catch (IllegalStateException e) {
-            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                               .body(Map.of("message", "Failed to leave group: " + e.getMessage()));
-        }
-    }
+
 
     @GetMapping("/user/{userId}/memberships")
     public ResponseEntity<List<GroupMembership>> getUserMemberships(@PathVariable String userId) {
