@@ -55,7 +55,18 @@ public class GroupController {
         return ResponseEntity.ok(groupService.getAllUserGroups(userId));
     }
 
-
+    @PostMapping("/{groupId}/join")
+    public ResponseEntity<?> joinGroup(@PathVariable String groupId, @RequestParam String userId) {
+        try {
+            GroupMembership membership = groupService.joinGroup(groupId, userId);
+            return ResponseEntity.ok(membership);
+        } catch (IllegalStateException e) {
+            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                               .body(Map.of("message", "Failed to join group"));
+        }
+    }
 
     @DeleteMapping("/{groupId}/leave")
     public ResponseEntity<?> leaveGroup(@PathVariable String groupId, @RequestParam String userId) {
