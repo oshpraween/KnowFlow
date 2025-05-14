@@ -181,7 +181,7 @@ const NotificationsPage = () => {
             }`}
             onClick={() => setActiveTab('unread')}
           >
-            Unread
+             Unread
           </span>
         </div>
         
