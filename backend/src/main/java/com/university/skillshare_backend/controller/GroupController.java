@@ -12,7 +12,7 @@ import com.university.skillshare_backend.model.User;
 import com.university.skillshare_backend.service.GroupService;
 import java.util.List;
 import java.util.Map;
-// group project
+
 @RestController
 @RequestMapping("/api/groups")
 @CrossOrigin(origins = "*")
